@@ -18,7 +18,7 @@
 #
 
 # make dir
-windows_batch node[:w2k8hf][:make] do
+batch node[:w2k8hf][:make] do
   code <<-EOH
   mkdir c:\\PostSP1
   EOH
@@ -36,7 +36,7 @@ windows_zipfile node[:w2k8hf][:zip] do
 end
 
 # Install office
-windows_batch node[:w2k8hf][:install] do
+batch node[:w2k8hf][:install] do
   code <<-EOH
   cd c:\\PostSp1
   c:\\postsp1\\installpostsp1.cmd
@@ -45,7 +45,7 @@ windows_batch node[:w2k8hf][:install] do
   not_if {reboot_pending?}
 end
 
-windows_batch node[:w2k8hf][:remove] do
+batch node[:w2k8hf][:remove] do
   code <<-EOH
   rmdir /s /q c:\\PostSp1
   EOH
