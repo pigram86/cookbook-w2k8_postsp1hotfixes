@@ -35,7 +35,7 @@ windows_zipfile node[:w2k8hf][:zip] do
   not_if {reboot_pending?}
 end
 
-# Install office
+# Install patches
 batch node[:w2k8hf][:install] do
   code <<-EOH
   cd c:\\PostSp1
