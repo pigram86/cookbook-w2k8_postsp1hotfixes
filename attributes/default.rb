@@ -16,10 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-default[:w2k8hf][:make] = "make dir"
-default[:w2k8hf][:remove] = "remove c:\\PostSp1" 
-default[:w2k8hf][:url] = "https://dl.dropboxusercontent.com/u/36379525/PostSP1.zip"
-default[:w2k8hf][:install] = "install"
-default[:w2k8hf][:log] = "C:/PostSp1_patches.log"
-default[:w2k8hf][:sleep] = "C:/PostSp1/sleep.exe" 
-default[:w2k8hf][:zip] = "c:/PostSP1"
+default['w2k8hf']['make'] = "make dir"
+default['w2k8hf']['remove'] = "remove c:\\PostSp1" 
+default['w2k8hf']['url'] = "https://dl.dropboxusercontent.com/u/36379525/PostSP1.zip"
+default['w2k8hf']['install'] = "install"
+default['w2k8hf']['log'] = "C:/PostSp1_patches.log"
+default['w2k8hf']['sleep'] = "C:/PostSp1/sleep.exe" 
+default['w2k8hf']['zip'] = "c:/PostSP1"

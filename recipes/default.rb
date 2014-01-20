@@ -18,38 +18,38 @@
 #
 
 # make dir
-batch node[:w2k8hf][:make] do
+batch node['w2k8hf']['make'] do
   code <<-EOH
   mkdir c:\\PostSP1
   EOH
-  not_if {::File.exists?(node[:w2k8hf][:sleep])}
+  not_if {::File.exists?(node['w2k8hf']['sleep'])}
   not_if {reboot_pending?}
 end
 
 # download patches to server
 # unzip patches to c:\
-windows_zipfile node[:w2k8hf][:zip] do
-  source node[:w2k8hf][:url]
+windows_zipfile node['w2k8hf']['zip'] do
+  source node['w2k8hf']['url']
   action :unzip
-  not_if {::File.exists?(node[:w2k8hf][:sleep])}
+  not_if {::File.exists?(node['w2k8hf']['sleep'])}
   not_if {reboot_pending?}
 end
 
 # Install patches
-batch node[:w2k8hf][:install] do
+batch node['w2k8hf']['install'] do
   code <<-EOH
   cd c:\\PostSp1
   c:\\postsp1\\installpostsp1.cmd
   EOH
-  not_if {::File.exists?(node[:w2k8hf][:log])}
+  not_if {::File.exists?(node['w2k8hf']['log'])}
   not_if {reboot_pending?}
 end
 
-batch node[:w2k8hf][:remove] do
+batch node['w2k8hf']['remove'] do
   code <<-EOH
   rmdir /s /q c:\\PostSp1
   EOH
-  only_if {::File.exists?(node[:w2k8hf][:log])}
+  only_if {::File.exists?(node['w2k8hf']['log'])}
   not_if {reboot_pending?}
 end
 
