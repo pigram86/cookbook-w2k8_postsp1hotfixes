@@ -18,12 +18,12 @@
 #
 
 # make dir
-batch "make dir" do
+batch node['w2k8hf']['make'] do
   code <<-EOH
   mkdir c:\\PostSP1
   EOH
   not_if {::File.exists?(node['w2k8hf']['sleep'])}
-  not_if {reboot_pending?}
+ not_if {reboot_pending?}
 end
 
 # download patches to server
@@ -38,7 +38,6 @@ end
 # Install patches
 batch node['w2k8hf']['install'] do
   code <<-EOH
-  cd c:\\PostSp1
   c:\\postsp1\\installpostsp1.cmd
   EOH
   not_if {::File.exists?(node['w2k8hf']['log'])}
