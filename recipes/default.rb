@@ -18,7 +18,7 @@
 #
 
 # make dir
-batch node['w2k8hf']['make'] do
+batch "make dir" do
   code <<-EOH
   mkdir c:\\PostSP1
   EOH
