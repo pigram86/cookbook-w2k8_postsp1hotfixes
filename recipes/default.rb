@@ -23,7 +23,7 @@ batch node['w2k8hf']['make'] do
   mkdir c:\\PostSP1
   EOH
   not_if {::File.exists?(node['w2k8hf']['sleep'])}
- not_if {reboot_pending?}
+  not_if {reboot_pending?}
 end
 
 # download patches to server
