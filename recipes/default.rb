@@ -22,7 +22,7 @@ batch node['w2k8hf']['make'] do
   code <<-EOH
   mkdir c:\\PostSP1
   EOH
-  not_if {::File.exists?(node['w2k8hf']['sleep'])}
+  not_if {::File.exists?(node['w2k8hf']['log'])}
   not_if {reboot_pending?}
 end
 
@@ -31,7 +31,7 @@ end
 windows_zipfile node['w2k8hf']['zip'] do
   source node['w2k8hf']['url']
   action :unzip
-  not_if {::File.exists?(node['w2k8hf']['sleep'])}
+  not_if {::File.exists?(node['w2k8hf']['log'])}
   not_if {reboot_pending?}
 end
 
